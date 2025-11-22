@@ -9,6 +9,9 @@
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --font-heading: 'Dancing Script', cursive;
     --font-body: 'Montserrat', sans-serif;
+    --hero-overlay: rgba(123, 31, 162, 0.6); 
+    --secondary-color: #ffffff;
+    --text-light: #ffffff;
 }
 
 * {
@@ -131,9 +134,15 @@ body {
 
 /* Главная секция */
 .hero {
-    padding: 120px 0 80px;
+    position: relative;
+    padding: 150px 0 100px;
     text-align: center;
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--bg-color) 100%);
+    background-image: url('images/fon.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--text-light);
 }
 
 .hero-title {
@@ -148,6 +157,39 @@ body {
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--hero-overlay);
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-light);
+    border: 2px solid var(--text-light);
+}
+
+.btn-secondary:hover {
+    background-color: var(--text-light);
+    color: var(--accent-color);
 }
 
 /* Секции */

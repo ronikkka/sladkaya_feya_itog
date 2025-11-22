@@ -79,12 +79,24 @@
             <div class="container">
                 <h2>Наши работы</h2>
                 <div class="gallery-grid">
-                    <img src="images\edinorog.jpg" alt="Детский торт с единорогом">
-                    <img src="images\svadiba.jpg" alt="Свадебный трехъярусный торт">
-                    <img src="images\ubiley.jpg" alt="Торт на юбилей">
-                    <img src="images\macarons.jpg" alt="Пирожные Макаруны">
-                    <img src="images\princess.jpg" alt="Торт Принцесса">
-                    <img src="images\bento.jpg" alt="Бенто торт">
+                    <div class="gallery-item" data-cake="1">
+                        <img src="images\edinorog.jpg" alt="Детский торт с единорогом">
+                    </div>
+                    <div class="gallery-item" data-cake="2">
+                        <img src="images\svadiba.jpg" alt="Свадебный трехъярусный торт">
+                    </div>
+                    <div class="gallery-item" data-cake="3">
+                        <img src="images\ubiley.jpg" alt="Торт на юбилей">
+                    </div>
+                    <div class="gallery-item" data-cake="4">
+                        <img src="images\macarons.jpg" alt="Пирожные Макаруны">
+                    </div>
+                    <div class="gallery-item" data-cake="5">
+                        <img src="images\princess.jpg" alt="Торт Принцесса">
+                    </div>
+                    <div class="gallery-item" data-cake="6">
+                        <img src="images\bento.jpg" alt="Бенто торт">
+                    </div>
                 </div>
             </div>
         </section>
@@ -132,6 +144,21 @@
                 <textarea name="order-details" placeholder="Опишите ваш торт..." rows="4"></textarea>
                 <button type="submit" class="btn btn-primary">Отправить заявку</button>
             </form>
+        </div>
+    </div>
+    
+    <div class="modal" id="gallery-modal">
+        <div class="modal-content gallery-modal">
+            <span class="close-modal">&times;</span>
+            <div class="gallery-modal-content">
+                <img id="gallery-image" src="" alt="">
+                <div class="gallery-modal-info">
+                    <h3 id="gallery-title">Название торта</h3>
+                    <p id="gallery-description">Описание торта</p>
+                    <p class="gallery-price" id="gallery-price">Цена: от 2 500 ₽</p>
+                    <button class="btn btn-primary open-order-from-gallery">Заказать этот торт</button>
+                </div>
+            </div>
         </div>
     </div>
 

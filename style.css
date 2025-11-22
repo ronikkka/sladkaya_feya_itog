@@ -257,6 +257,63 @@ h2 {
     transform: scale(1.05);
 }
 
+/* Стили для галереи с оберткой */
+.gallery-item {
+    cursor: pointer;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+/* Модальное окно галереи */
+.gallery-modal {
+    max-width: 900px;
+    padding: 0;
+}
+
+.gallery-modal-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.gallery-modal-content img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+}
+
+.gallery-modal-info {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gallery-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    margin: 1rem 0;
+}
+
+/* Адаптивность для модалки галереи */
+@media (max-width: 768px) {
+    .gallery-modal-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-modal-content img {
+        height: 250px;
+        border-radius: 10px 10px 0 0;
+    }
+}
+
 /* Контакты */
 .contacts-wrapper {
     display: grid;

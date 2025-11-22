@@ -108,3 +108,94 @@ if (contactForm) {
 if (orderForm) {
     orderForm.addEventListener('submit', (e) => handleFormSubmit.call(orderForm, e, 'Заказ'));
 }
+// Данные для тортов
+const cakesData = {
+    1: {
+        title: "Детский торт с единорогом",
+        description: "Волшебный торт для самого сказочного дня рождения! Нежный бисквит, крем чиз и яркое оформление.",
+        price: "от 2 800 ₽"
+    },
+    2: {
+        title: "Свадебный торт",
+        description: "Элегантный трехъярусный торт для вашего особенного дня. Классическое сочетание ванили и красного бархата.",
+        price: "от 8 000 ₽"
+    },
+    3: {
+        title: "Торт на юбилей",
+        description: "Торжественный торт для важного события. Изысканный дизайн и насыщенный вкус шоколада и вишни.",
+        price: "от 3 500 ₽"
+    },
+    4: {
+        title: "Макаруны",
+        description: "Нежные французские пирожные с разнообразными начинками. Идеально для кофе-брейка или подарка.",
+        price: "от 150 ₽/шт"
+    },
+    5: {
+        title: "Торт Принцесса",
+        description: "Роскошный торт в розовых тонах для настоящей принцессы. Ванильный бисквит с ягодным муссом.",
+        price: "от 3 200 ₽"
+    },
+    6: {
+        title: "Бенто торт",
+        description: "Маленький торт для одного человека. Идеальный подарок для близких или себя любимой!",
+        price: "от 1 200 ₽"
+    }
+};
+
+// Модальное окно галереи
+const galleryModal = document.getElementById('gallery-modal');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+// Открытие модалки галереи
+galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const cakeId = item.getAttribute('data-cake');
+        const cake = cakesData[cakeId];
+        
+        document.getElementById('gallery-image').src = item.querySelector('img').src;
+        document.getElementById('gallery-image').alt = item.querySelector('img').alt;
+        document.getElementById('gallery-title').textContent = cake.title;
+        document.getElementById('gallery-description').textContent = cake.description;
+        document.getElementById('gallery-price').textContent = `Цена: ${cake.price}`;
+        
+        galleryModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+});
+
+// Кнопка "Заказать этот торт" в модалке галереи
+document.querySelector('.open-order-from-gallery').addEventListener('click', () => {
+    closeModal(galleryModal);
+    setTimeout(() => {
+        openModal(); // Открываем основное модальное окно заказа
+    }, 300);
+});
+
+// Функции для работы с модалками
+function openModal() {
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(modalElement) {
+    modalElement.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Обновляем обработчики закрытия модалок
+document.querySelectorAll('.close-modal').forEach(closeBtn => {
+    closeBtn.addEventListener('click', function() {
+        const modal = this.closest('.modal');
+        closeModal(modal);
+    });
+});
+
+// Закрытие при клике вне модалки
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        closeModal(modal);
+    }
+    if (e.target === galleryModal) {
+        closeModal(galleryModal);
+    }
+});

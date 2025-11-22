@@ -47,7 +47,6 @@ body {
     padding: 0 20px;
 }
 
-/* Кнопки */
 .btn {
     display: inline-block;
     padding: 12px 24px;
@@ -73,7 +72,6 @@ body {
     box-shadow: var(--shadow);
 }
 
-/* Шапка */
 .header {
     background-color: var(--white);
     box-shadow: var(--shadow);
@@ -99,7 +97,7 @@ body {
 }
 
 .nav-list {
-    display: none; /* Скрыто на мобильных */
+    display: none; 
     list-style: none;
     flex-direction: column;
     position: absolute;
@@ -142,7 +140,6 @@ body {
     transition: 0.3s;
 }
 
-/* Главная секция */
 .hero {
     position: relative;
     padding: 150px 0 100px;
@@ -183,7 +180,6 @@ body {
     color: var(--accent-color);
 }
 
-/* Секции */
 section {
     padding: 80px 0;
 }
@@ -196,7 +192,6 @@ h2 {
     font-family: var(--font-heading);
 }
 
-/* Карточки тортов */
 .cakes-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -222,7 +217,6 @@ h2 {
     font-family: var(--font-heading);
 }
 
-/* Галерея */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -242,7 +236,6 @@ h2 {
     transform: scale(1.05);
 }
 
-/* Стили для галереи с оберткой */
 .gallery-item {
     cursor: pointer;
     border-radius: 10px;
@@ -254,7 +247,6 @@ h2 {
     transform: scale(1.05);
 }
 
-/* Модальное окно галереи */
 .gallery-modal {
     max-width: 900px;
     padding: 0;
@@ -294,7 +286,6 @@ h2 {
     margin: 1rem 0;
 }
 
-/* Адаптивность для модалки галереи */
 @media (max-width: 768px) {
     .gallery-modal-content {
         grid-template-columns: 1fr;
@@ -306,7 +297,6 @@ h2 {
     }
 }
 
-/* Контакты */
 .contacts-wrapper {
     display: grid;
     grid-template-columns: 1fr;
@@ -343,7 +333,6 @@ h2 {
     text-decoration: none;
 }
 
-/* Подвал */
 .footer {
     background-color: var(--accent-color);
     color: var(--white);
@@ -351,7 +340,6 @@ h2 {
     padding: 2rem 0;
 }
 
-/* Модальное окно */
 .modal {
     display: none;
     position: fixed;
@@ -389,14 +377,13 @@ h2 {
     color: var(--accent-color);
 }
 
-/* Адаптивность для планшетов и десктопов */
 @media (min-width: 768px) {
     .nav-toggle {
         display: none;
     }
 
     .nav-list {
-        display: flex !important; /* Важно переопределить display: none */
+        display: flex !important; 
         position: static;
         flex-direction: row;
         width: auto;

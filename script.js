@@ -1,4 +1,4 @@
-// Плавная прокрутка по якорным ссылкам
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -21,7 +21,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Мобильное меню
 const navToggle = document.querySelector('.nav-toggle');
 const navList = document.querySelector('.nav-list');
 
@@ -29,12 +28,10 @@ navToggle.addEventListener('click', () => {
     navList.classList.toggle('active');
 });
 
-// Модальные окна
 const orderModal = document.getElementById('order-modal');
 const galleryModal = document.getElementById('gallery-modal');
 const openModalBtn = document.querySelector('.open-modal');
 
-// Функции для работы с модалками
 function openOrderModal() {
     orderModal.style.display = 'block';
     document.body.style.overflow = 'hidden';
@@ -45,10 +42,8 @@ function closeModal(modalElement) {
     document.body.style.overflow = 'auto';
 }
 
-// Открытие модалки заказа
 openModalBtn.addEventListener('click', openOrderModal);
 
-// Закрытие модалок при клике на крестик
 document.querySelectorAll('.close-modal').forEach(closeBtn => {
     closeBtn.addEventListener('click', function() {
         const modal = this.closest('.modal');
@@ -56,7 +51,6 @@ document.querySelectorAll('.close-modal').forEach(closeBtn => {
     });
 });
 
-// Закрытие модалок при клике вне области
 window.addEventListener('click', (e) => {
     if (e.target === orderModal) {
         closeModal(orderModal);
@@ -66,7 +60,6 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// Данные для тортов
 const cakesData = {
     1: {
         title: "Детский торт с единорогом",
@@ -100,7 +93,6 @@ const cakesData = {
     }
 };
 
-// Открытие модалки галереи
 const galleryItems = document.querySelectorAll('.gallery-item');
 
 galleryItems.forEach(item => {
@@ -119,7 +111,6 @@ galleryItems.forEach(item => {
     });
 });
 
-// Кнопка "Заказать этот торт" в модалке галереи
 document.querySelector('.open-order-from-gallery').addEventListener('click', () => {
     closeModal(galleryModal);
     setTimeout(() => {
@@ -127,7 +118,6 @@ document.querySelector('.open-order-from-gallery').addEventListener('click', () 
     }, 300);
 });
 
-// Валидация форм
 const contactForm = document.getElementById('contact-form');
 const orderForm = document.getElementById('order-form');
 

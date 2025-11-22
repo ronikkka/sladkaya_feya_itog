@@ -37,6 +37,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
+    overflow-x: hidden;
 }
 
 .container {
@@ -141,17 +142,16 @@ body {
     transition: 0.3s;
 }
 
+/* Главная секция */
 .hero {
     position: relative;
     padding: 150px 0 100px;
     text-align: center;
-    background-image: url('images/fon.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url('images/fon.jpg') center/cover no-repeat;
     color: var(--white);
-    margin: 0;
-    width: 100%;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 .hero .container {
@@ -170,12 +170,6 @@ body {
     height: 100%;
     background: var(--hero-overlay);
     z-index: 1;
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: var(--text-light);
-    border: 2px solid var(--text-light);
 }
 
 .btn-secondary:hover {

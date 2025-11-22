@@ -7,7 +7,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
-            // Учитываем высоту фиксированного хедера
             const headerOffset = 80;
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -17,7 +16,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 behavior: 'smooth'
             });
 
-            // Закрываем мобильное меню после клика по ссылке
             navList.classList.remove('active');
         }
     });
@@ -31,83 +29,43 @@ navToggle.addEventListener('click', () => {
     navList.classList.toggle('active');
 });
 
-// Модальное окно
-const modal = document.getElementById('order-modal');
+// Модальные окна
+const orderModal = document.getElementById('order-modal');
+const galleryModal = document.getElementById('gallery-modal');
 const openModalBtn = document.querySelector('.open-modal');
-const closeModalBtn = document.querySelector('.close-modal');
 
-function openModal() {
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Блокируем скролл страницы
+// Функции для работы с модалками
+function openOrderModal() {
+    orderModal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
 }
 
-function closeModal() {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto'; // Возвращаем скролл
+function closeModal(modalElement) {
+    modalElement.style.display = 'none';
+    document.body.style.overflow = 'auto';
 }
 
-openModalBtn.addEventListener('click', openModal);
-closeModalBtn.addEventListener('click', closeModal);
+// Открытие модалки заказа
+openModalBtn.addEventListener('click', openOrderModal);
 
-// Закрытие модального окна при клике вне его области
+// Закрытие модалок при клике на крестик
+document.querySelectorAll('.close-modal').forEach(closeBtn => {
+    closeBtn.addEventListener('click', function() {
+        const modal = this.closest('.modal');
+        closeModal(modal);
+    });
+});
+
+// Закрытие модалок при клике вне области
 window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        closeModal();
+    if (e.target === orderModal) {
+        closeModal(orderModal);
+    }
+    if (e.target === galleryModal) {
+        closeModal(galleryModal);
     }
 });
 
-// Валидация формы
-const contactForm = document.getElementById('contact-form');
-const orderForm = document.getElementById('order-form');
-
-function validateForm(form) {
-    let isValid = true;
-    const inputs = form.querySelectorAll('input[required], textarea[required]');
-
-    inputs.forEach(input => {
-        if (!input.value.trim()) {
-            isValid = false;
-            input.style.borderColor = 'red';
-        } else {
-            input.style.borderColor = '#ddd';
-        }
-
-        // Простая валидация email
-        if (input.type === 'email' && input.value) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(input.value)) {
-                isValid = false;
-                input.style.borderColor = 'red';
-                alert('Пожалуйста, введите корректный email адрес.');
-            }
-        }
-    });
-
-    return isValid;
-}
-
-function handleFormSubmit(e, formName) {
-    e.preventDefault();
-
-    if (validateForm(this)) {
-        // Здесь обычно код для отправки данных на сервер (например, с помощью Fetch API)
-        alert(`Спасибо! Ваша заявка из формы "${formName}" отправлена. Мы свяжемся с вами в ближайшее время.`);
-        this.reset(); // Очищаем форму
-        if (formName === 'Заказ') {
-            closeModal(); // Закрываем модальное окно заказа
-        }
-    } else {
-        alert('Пожалуйста, заполните все обязательные поля правильно.');
-    }
-}
-
-if (contactForm) {
-    contactForm.addEventListener('submit', (e) => handleFormSubmit.call(contactForm, e, 'Контакты'));
-}
-
-if (orderForm) {
-    orderForm.addEventListener('submit', (e) => handleFormSubmit.call(orderForm, e, 'Заказ'));
-}
 // Данные для тортов
 const cakesData = {
     1: {
@@ -142,11 +100,9 @@ const cakesData = {
     }
 };
 
-// Модальное окно галереи
-const galleryModal = document.getElementById('gallery-modal');
+// Открытие модалки галереи
 const galleryItems = document.querySelectorAll('.gallery-item');
 
-// Открытие модалки галереи
 galleryItems.forEach(item => {
     item.addEventListener('click', () => {
         const cakeId = item.getAttribute('data-cake');
@@ -167,35 +123,57 @@ galleryItems.forEach(item => {
 document.querySelector('.open-order-from-gallery').addEventListener('click', () => {
     closeModal(galleryModal);
     setTimeout(() => {
-        openModal(); // Открываем основное модальное окно заказа
+        openOrderModal();
     }, 300);
 });
 
-// Функции для работы с модалками
-function openModal() {
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-}
+// Валидация форм
+const contactForm = document.getElementById('contact-form');
+const orderForm = document.getElementById('order-form');
 
-function closeModal(modalElement) {
-    modalElement.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
+function validateForm(form) {
+    let isValid = true;
+    const inputs = form.querySelectorAll('input[required], textarea[required]');
 
-// Обновляем обработчики закрытия модалок
-document.querySelectorAll('.close-modal').forEach(closeBtn => {
-    closeBtn.addEventListener('click', function() {
-        const modal = this.closest('.modal');
-        closeModal(modal);
+    inputs.forEach(input => {
+        if (!input.value.trim()) {
+            isValid = false;
+            input.style.borderColor = 'red';
+        } else {
+            input.style.borderColor = '#ddd';
+        }
+
+        if (input.type === 'email' && input.value) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(input.value)) {
+                isValid = false;
+                input.style.borderColor = 'red';
+                alert('Пожалуйста, введите корректный email адрес.');
+            }
+        }
     });
-});
 
-// Закрытие при клике вне модалки
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        closeModal(modal);
+    return isValid;
+}
+
+function handleFormSubmit(e, formName) {
+    e.preventDefault();
+
+    if (validateForm(this)) {
+        alert(`Спасибо! Ваша заявка из формы "${formName}" отправлена. Мы свяжемся с вами в ближайшее время.`);
+        this.reset();
+        if (formName === 'Заказ') {
+            closeModal(orderModal);
+        }
+    } else {
+        alert('Пожалуйста, заполните все обязательные поля правильно.');
     }
-    if (e.target === galleryModal) {
-        closeModal(galleryModal);
-    }
-});
+}
+
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => handleFormSubmit.call(contactForm, e, 'Контакты'));
+}
+
+if (orderForm) {
+    orderForm.addEventListener('submit', (e) => handleFormSubmit.call(orderForm, e, 'Заказ'));
+}

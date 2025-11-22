@@ -1,0 +1,135 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сладкая Фея | Кондитерская на заказ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="container">
+            <a href="#home" class="logo">Сладкая Фея</a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#cakes">Наши торты</a></li>
+                    <li><a href="#gallery">Галерея</a></li>
+                    <li><a href="#contacts">Контакты</a></li>
+                </ul>
+                <button class="nav-toggle" aria-label="Открыть меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Главная секция -->
+        <section id="home" class="hero">
+            <div class="container">
+                <h1 class="hero-title">Воплощаем ваши сладкие мечты в реальность</h1>
+                <p class="hero-description">Авторские торты, пирожные и десерты от кондитера с любовью к своему делу. Натурально, вкусно и красиво.</p>
+                <button class="btn btn-primary open-modal">Заказать торт</button>
+            </div>
+        </section>
+
+        <!-- О нас -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2>Немного о нашей магии</h2>
+                <p>Мы — "Сладкая Фея", маленькая кондитерская, где каждая сладость создается вручную. Мы используем только лучшие ингредиенты: натуральное сливочное масло, свежие ягоды и фрукты, отборный шоколад. Ваш праздник заслуживает идеального десерта!</p>
+            </div>
+        </section>
+
+        <!-- Наши торты -->
+        <section id="cakes" class="cakes">
+            <div class="container">
+                <h2>Наши торты</h2>
+                <div class="cakes-grid">
+                    <article class="cake-card">
+                        <h3>Детские торты</h3>
+                        <p>Яркие, веселые торты с любимыми героями вашего ребенка.</p>
+                    </article>
+                    <article class="cake-card">
+                        <h3>Свадебные торты</h3>
+                        <p>Элегантные и изысканные торты, которые станут центром вашего праздника.</p>
+                    </article>
+                    <article class="cake-card">
+                        <h3>Бенто торты</h3>
+                        <p>Маленькие тортики на одного человека будут идеальным подарком</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Галерея -->
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <h2>Наши работы</h2>
+                <div class="gallery-grid">
+                    <img src="images\edinorog.jpg" alt="Детский торт с единорогом">
+                    <img src="images\svadiba.jpg" alt="Свадебный трехъярусный торт">
+                    <img src="images\ubiley.jpg" alt="Торт на юбилей">
+                    <img src="images\macarons.jpg" alt="Пирожные Макаруны">
+                    <img src="images\princess.jpg" alt="Торт Принцесса">
+                    <img src="images\bento.jpg" alt="Бенто торт">
+                </div>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section id="contacts" class="contacts">
+            <div class="container">
+                <h2>Свяжитесь с нами</h2>
+                <div class="contacts-wrapper">
+                    <form class="contact-form" id="contact-form">
+                        <input type="text" name="name" placeholder="Ваше имя" required>
+                        <input type="email" name="email" placeholder="Ваш e-mail" required>
+                        <textarea name="message" placeholder="Ваше сообщение..." rows="5" required></textarea>
+                        <button type="submit" class="btn btn-primary">Отправить сообщение</button>
+                    </form>
+                    <div class="contact-info">
+                        <h3>Наши контакты</h3>
+                        <p>📞 <a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
+                        <p>✉️ <a href="mailto:hello@sladkaya-feya.ru">sladkaya-feya@mail.ru</a></p>
+                        <div class="social-links">
+                            <a href="#" aria-label="VKontakte">VKontakte</a>
+                            <a href="#" aria-label="WhatsApp">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Сладкая Фея. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div class="modal" id="order-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Оформить заказ</h2>
+            <form id="order-form">
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="tel" name="phone" placeholder="Ваш телефон" required>
+                <textarea name="order-details" placeholder="Опишите ваш торт..." rows="4"></textarea>
+                <button type="submit" class="btn btn-primary">Отправить заявку</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

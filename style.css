@@ -142,7 +142,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: var(--text-light);
+    color: var(--white);
 }
 
 .hero-title {

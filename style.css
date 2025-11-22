@@ -144,16 +144,27 @@ body {
 /* Главная секция */
 .hero {
     position: relative;
-    padding: 150px 0 100px;
+    padding: 150px 20px 100px;
     text-align: center;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--bg-color) 100%);
     background-image: url('images/fon.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: var(--white);
-    margin: 0 -20px;
-    width: calc(100% + 40px);
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    left: 50%;
+    right: 50%;
+    margin-top: 0;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .hero-title {

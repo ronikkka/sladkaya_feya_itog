@@ -94,6 +94,7 @@ body {
     font-weight: bold;
     color: var(--accent-color);
     text-decoration: none;
+    font-family: var(--font-heading);
 }
 
 .nav-list {
@@ -157,6 +158,7 @@ body {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: var(--white); 
+    font-family: var(--font-heading);
 }
 
 .hero-description {
@@ -210,6 +212,7 @@ h2 {
     margin-bottom: 3rem;
     color: var(--accent-color);
     font-size: 1.8rem;
+    font-family: var(--font-heading);
 }
 
 /* Карточки тортов */
@@ -235,6 +238,7 @@ h2 {
 .cake-card h3 {
     color: var(--accent-color);
     margin-bottom: 1rem;
+    font-family: var(--font-heading);
 }
 
 /* Галерея */
@@ -293,6 +297,13 @@ h2 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.gallery-modal-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
 }
 
 .gallery-price {
@@ -420,6 +431,7 @@ h2 {
     .hero-title {
         font-size: 2.5rem;
         color: var(--white);
+        font-family: var(--font-heading);
     }
 
     .cakes-grid {

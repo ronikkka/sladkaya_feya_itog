@@ -7,11 +7,19 @@
     --yellow: #fae291;
     --white: #ffffff;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --font-heading: 'Dancing Script', cursive;
+    --font-heading: 'IB Sunday', cursive;
     --font-body: 'Montserrat', sans-serif;
     --hero-overlay: rgba(123, 31, 162, 0.6); 
     --secondary-color: #ffffff;
     --text-light: #ffffff;
+}
+
+@font-face {
+    font-family: 'IB Sunday';
+    src: url('fonts/ib-sunday.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 * {
